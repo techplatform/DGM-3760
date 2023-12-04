@@ -8,7 +8,7 @@ function addToDo() {
 
   const todoItem = document.createElement("li");
   todoItem.innerHTML = `
-            <input type="checkbox" onchange="updateTodosLeft()">
+            <input type="checkbox" onchange="updateTodosRemaining()">
             <span>${todoText}</span>
             <button onclick="editTodo(this)">Edit</button>
             <button onclick="deleteTodo(this)">Delete</button>
@@ -16,7 +16,7 @@ function addToDo() {
 
   toDoList.appendChild(todoItem);
   newToDoInput.value = "";
-  updateTodosLeft();
+  updateTodosRemaining();
 }
 
 function editTodo(button) {
@@ -31,10 +31,10 @@ function editTodo(button) {
 function deleteTodo(button) {
   const todoItem = button.parentElement;
   toDoList.removeChild(todoItem);
-  updateTodosLeft();
+  updateTodosRemaining();
 }
 
-function updateTodosLeft() {
+function updateTodosRemaining() {
   const checkboxes = document.querySelectorAll(
     '#toDoList input[type="checkbox"]'
   );
@@ -52,5 +52,5 @@ function clearCompleted() {
     const todoItem = checkbox.parentElement;
     toDoList.removeChild(todoItem);
   });
-  updateTodosLeft();
+  updateTodosRemaining();
 }
